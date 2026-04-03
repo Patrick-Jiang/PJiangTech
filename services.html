@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PJiangTech | Professional IT Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lexend:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #020617; 
+      --text: #f1f5f9; 
+      --accent: #3b82f6; 
+      --glass: rgba(15, 23, 42, 0.8); 
+      --border: rgba(255, 255, 255, 0.1); 
+      --card-bg: #1e293b;
+    }
+    
+    body.light {
+      --bg: #f8fafc; 
+      --text: #1e293b; 
+      --glass: rgba(255, 255, 255, 0.8); 
+      --border: rgba(0, 0, 0, 0.05); 
+      --card-bg: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body { 
+      font-family: 'Inter', sans-serif; 
+      background-color: var(--bg); 
+      color: var(--text); 
+      line-height: 1.6; 
+      transition: background 0.4s ease; 
+    }
+
+    h1, h2, h3 { font-family: 'Lexend', sans-serif; }
+
+    header { 
+      position: fixed; 
+      width: 90%; 
+      top: 20px; 
+      left: 50%; 
+      transform: translateX(-50%); 
+      background: var(--glass); 
+      backdrop-filter: blur(12px); 
+      border: 1px solid var(--border); 
+      border-radius: 100px; 
+      padding: 12px 30px; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      z-index: 1000; 
+    }
+
+    /* WHITE LOGO */
+    .logo { font-size: 1.4rem; color: #ffffff !important; font-weight: 700; text-decoration: none; letter-spacing: -1px; }
+
+    nav a { color: var(--text); margin-left: 25px; text-decoration: none; font-size: 0.9rem; font-weight: 500; opacity: 0.8; }
+
+    .hero { 
+      padding: 180px 20px 80px; 
+      text-align: center; 
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+      color: white;
+    }
+
+    .hero h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 15px; }
+    .hero p { max-width: 700px; margin: 0 auto; opacity: 0.9; font-size: 1.1rem; }
+
+    .services-container { 
+      padding: 80px 10%; 
+      max-width: 1400px; 
+      margin: auto; 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+      gap: 30px; 
+    }
+
+    .service-card { 
+      background: var(--card-bg); 
+      padding: 40px; 
+      border-radius: 24px; 
+      border: 1px solid var(--border); 
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+
+    .service-card h2 { color: var(--accent); margin-bottom: 15px; font-size: 1.5rem; }
+    .service-card p { font-size: 0.95rem; margin-bottom: 20px; opacity: 0.8; font-weight: 500; }
+
+    .service-list { list-style: none; }
+    .service-list li { 
+      margin-bottom: 10px; 
+      font-size: 0.9rem; 
+      padding-left: 25px; 
+      position: relative; 
+      opacity: 0.9;
+    }
+
+    .service-list li::before { 
+      content: '✓'; 
+      position: absolute; 
+      left: 0; 
+      color: var(--accent); 
+      font-weight: bold; 
+    }
+
+    .cta-section { 
+      text-align: center; 
+      padding: 80px 20px; 
+      background: rgba(59, 130, 246, 0.05); 
+    }
+
+    .btn { 
+      display: inline-block; 
+      background: var(--accent); 
+      color: white; 
+      padding: 16px 40px; 
+      border-radius: 100px; 
+      text-decoration: none; 
+      font-weight: 600; 
+      box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); 
+    }
+
+    footer { text-align: center; padding: 60px 20px; border-top: 1px solid var(--border); opacity: 0.6; font-size: 0.85rem; }
+
+    @media (max-width: 768px) {
+      header { width: 95%; padding: 10px 20px; }
+      .services-container { grid-template-columns: 1fr; padding: 40px 5%; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">PJiangTech</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">F&Q</a>
+    <a href="contact.html">Contact</a>   
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Our Service Offerings</h1>
+  <p>Reliable, secure, and scalable IT solutions backed by a decade of enterprise-level technical expertise.</p>
+</section>
+
+<div class="services-container">
+  <div class="service-card">
+  <h2>Digital Foundations & Setup</h2>
+  <p>The essential toolkit for new and growing businesses to establish a professional, secure presence.</p>
+  <ul class="service-list">
+    <li>Professional Business Email (Microsoft 365/Google Workspace)</li>
+    <li>Custom Domain Registration & DNS Management</li>
+    <li>Secure Password Management & MFA Setup</li>
+    <li>Standardized Email Signatures & Branding</li>
+    <li>Secure Cloud Document Storage (OneDrive/SharePoint)</li>
+    <li>Initial Workstation Security Hardening</li>
+  </ul>
+</div>
+  
+  <div class="service-card">
+    <h2>Managed IT Services</h2>
+    <p>Our core offering: Proactive monitoring and local support to keep your operations running smoothly.</p>
+    <ul class="service-list">
+      <li>24/7 System & Network Monitoring</li>
+      <li>Unlimited Helpdesk Support</li>
+      <li>Automated Patch Management & Updates</li>
+      <li>Endpoint Protection (Antivirus/EDR)</li>
+      <li>Backup & Disaster Recovery Solutions</li>
+      <li>Vendor & License Management</li>
+    </ul>
+  </div>
+
+  <div class="service-card">
+    <h2>Network Design & Security</h2>
+    <p>Custom infrastructure built for construction sites, warehouses, and medical clinics.</p>
+    <ul class="service-list">
+      <li>Firewall Deployment & Configuration</li>
+      <li>Secure VPN & Remote Access (MFA Enabled)</li>
+      <li>VLAN Segmentation & Network Optimization</li>
+      <li>Enterprise Office & Warehouse WiFi Design</li>
+      <li>Cybersecurity Assessments & Audits</li>
+    </ul>
+  </div>
+
+  <div class="service-card">
+    <h2>Server & Cloud Computing</h2>
+    <p>Scaling your business with high-availability on-premise and cloud hybrid environments.</p>
+    <ul class="service-list">
+      <li>On-Premise Server Setup & Maintenance</li>
+      <li>Azure & AWS Cloud Migrations</li>
+      <li>Virtualization (VMware / Hyper-V)</li>
+      <li>Secure Cloud Backup & Site Recovery</li>
+      <li>High-Availability Storage (SAN/NAS)</li>
+    </ul>
+  </div>
+
+  <div class="service-card">
+    <h2>Software & Applications</h2>
+    <p>Ensuring your team stays productive with perfectly managed business applications.</p>
+    <ul class="service-list">
+      <li>Microsoft 365 Setup & Administration</li>
+      <li>SaaS Integration & Technical Support</li>
+      <li>Enterprise Software Licensing Management</li>
+      <li>Business Application Troubleshooting</li>
+      <li>Automated Device Enrollment (Autopilot)</li>
+    </ul>
+  </div>
+
+  <div class="service-card">
+    <h2>VoIP Phone Systems</h2>
+    <p>Modern communication systems designed for the mobile and multi-location workforce.</p>
+    <ul class="service-list">
+      <li>Hosted VoIP Deployment & Management</li>
+      <li>Desk Phone & Softphone Integration</li>
+      <li>Advanced Call Routing & Auto-Attendants</li>
+      <li>Cost-Effective Scalable Communication</li>
+    </ul>
+  </div>
+
+  <div class="service-card">
+    <h2>Physical Security Systems</h2>
+    <p>Integrating IT expertise with physical protection for comprehensive business safety.</p>
+    <ul class="service-list">
+      <li>IP Surveillance Camera Systems</li>
+      <li>Access Control (Key Cards & Keypads)</li>
+      <li>Smart Door Entry Systems</li>
+      <li>Alarm & 24/7 Monitoring Integration</li>
+    </ul>
+  </div>
+</div>
+
+<div class="cta-section">
+  <h2>Ready for a Technical Audit?</h2>
+  <p style="margin-bottom: 30px; opacity: 0.8;">Let's build a secure foundation for your business growth.</p>
+  <a href="contact.html" class="btn">Get in Touch</a>
+</div>
+
+<footer>
+  <p>© 2026 PJiangTech | GTA • Barrie • Hamilton</p>
+</footer>
+
+<script>
+  // Ensure theme matches user's home page preference
+  if (localStorage.getItem('theme') === 'light') {
+    document.body.classList.add('light');
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PJiangTech | FAQ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lexend:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #020617; --text: #f1f5f9; --primary: #0f172a; --accent: #3b82f6;
+      --accent-glow: rgba(59, 130, 246, 0.5); --glass: rgba(15, 23, 42, 0.7);
+      --border: rgba(255, 255, 255, 0.1); --card-bg: #1e293b;
+    }
+    body.light {
+      --bg: #f8fafc; --text: #1e293b; --glass: rgba(255, 255, 255, 0.7);
+      --border: rgba(0, 0, 0, 0.05); --card-bg: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { 
+      font-family: 'Inter', sans-serif; 
+      background-color: var(--bg); 
+      color: var(--text); 
+      line-height: 1.6; 
+      transition: background 0.4s ease; 
+    }
+    h1, h2, h3 { font-family: 'Lexend', sans-serif; }
+    
+    header { 
+      position: fixed; width: 90%; top: 20px; left: 50%; transform: translateX(-50%); 
+      background: var(--glass); backdrop-filter: blur(12px); border: 1px solid var(--border); 
+      border-radius: 100px; padding: 12px 30px; display: flex; justify-content: space-between; 
+      align-items: center; z-index: 1000; 
+    }
+    
+    .logo { font-size: 1.4rem; color: #ffffff !important; font-weight: 700; text-decoration: none; letter-spacing: -1px; }
+    
+    nav a { color: var(--text); margin-left: 25px; text-decoration: none; font-size: 0.9rem; font-weight: 500; opacity: 0.8; }
+    .mode-toggle { cursor: pointer; background: none; border: 1px solid var(--border); padding: 5px 10px; border-radius: 50%; margin-left: 15px; color: var(--text); }
+    
+    .hero { 
+      padding: 180px 20px 80px; text-align: center; 
+      background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent); 
+    }
+    .hero h1 { 
+      font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 15px; 
+      background: linear-gradient(to bottom right, #fff, var(--accent)); 
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+    }
+
+    section { padding: 60px 10%; max-width: 1000px; margin: auto; }
+
+    /* Accordion Styling */
+    .accordion {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      margin-bottom: 15px;
+      padding: 20px 25px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      font-family: 'Lexend', sans-serif;
+    }
+
+    .accordion:hover {
+      border-color: var(--accent);
+      background: rgba(59, 130, 246, 0.05);
+    }
+
+    .accordion::after {
+      content: '+';
+      font-size: 1.5rem;
+      color: var(--accent);
+      transition: transform 0.3s ease;
+    }
+
+    .accordion.active {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border-color: var(--accent);
+    }
+
+    .accordion.active::after {
+      content: '−';
+      transform: rotate(180deg);
+    }
+
+    .panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-top: none;
+      border-radius: 0 0 16px 16px;
+      margin-top: -16px;
+      margin-bottom: 20px;
+      padding: 0 25px;
+    }
+
+    .panel p {
+      padding: 20px 0;
+      opacity: 0.9;
+      font-size: 0.95rem;
+    }
+
+    footer { 
+      text-align: center; padding: 60px 20px; border-top: 1px solid var(--border); 
+      opacity: 0.6; font-size: 0.85rem; 
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">PJiangTech</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>        
+    <a href="services.html">Services</a>  
+    <a href="contact.html">Contact</a>    
+  </nav>
+</header>
+
+<div class="hero">
+  <h1>Frequently Asked Questions</h1>
+  <p style="opacity: 0.8; max-width: 600px; margin: auto;">Clear answers for businesses establishing their digital foundation.</p>
+</div>
+
+<section>
+<div class="accordion">How do you ensure the work is performed to professional standards?</div>
+<div class="panel">
+  <p>Every project and service engagement begins with a detailed <strong>Statement of Work (SOW)</strong>. This document clearly defines the scope, technical requirements, and expected deliverables, ensuring full transparency. By following a structured, ITIL-aligned process, we guarantee that all infrastructure changes are documented, tested, and executed with zero surprise to your operations.</p>
+</div>
+
+  <div class="accordion">What IT services do you provide for small businesses?</div>
+  <div class="panel"><p>We handle everything from network setup and managed IT services to cloud solutions, server management, email, and hardware support—all tailored for small teams.</p></div>
+
+  <div class="accordion">Do I need to hire a full-time IT person?</div>
+  <div class="panel"><p>Not necessarily. Patrick Jiang provides managed IT services that cover all your IT needs at a fraction of the cost of hiring full-time staff.</p></div>
+
+  <div class="accordion">How much does it cost to start IT for a small business?</div>
+  <div class="panel"><p>Costs vary depending on requirements. We focus on low-cost, practical solutions like cloud setups, Proxmox virtualization, and affordable software to minimize expenses.</p></div>
+
+  <div class="accordion">What is Proxmox and how can it help my small business?</div>
+  <div class="panel"><p>Proxmox allows us to run multiple virtual servers on one physical server, saving hardware costs, simplifying backups, and increasing flexibility for your infrastructure.</p></div>
+
+  <div class="accordion">Can you set up my office network securely?</div>
+  <div class="panel"><p>Yes. We install RJ45 cabling, configure switches, and deploy WiFi access points with enterprise security so your network is fast, reliable, and safe from day one.</p></div>
+
+  <div class="accordion">Can you help onboard new employees?</div>
+  <div class="panel"><p>Absolutely. We set up email, install software, configure permissions, and ensure each employee can start working immediately without technical friction.</p></div>
+
+  <div class="accordion">Do you protect my business from cyberattacks?</div>
+  <div class="panel"><p>We implement a security-first methodology: firewalls, antivirus, secure WiFi, and remote monitoring to detect and resolve threats before they impact your business.</p></div>
+
+  <div class="accordion">How quickly do you respond if something breaks?</div>
+  <div class="panel"><p>We specialize in rapid response, often resolving critical infrastructure problems within an hour to minimize downtime for your team.</p></div>
+</section>
+
+<footer>
+  <p>© 2026 PJiangTech | GTA • Barrie • Hamilton</p>
+</footer>
+
+<script>
+  function toggleMode() { 
+    document.body.classList.toggle('light'); 
+    localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark'); 
+  }
+  
+  if (localStorage.getItem('theme') === 'light') document.body.classList.add('light');
+
+  const acc = document.querySelectorAll('.accordion');
+  acc.forEach(a => {
+    a.addEventListener('click', function() {
+      this.classList.toggle('active');
+      const panel = this.nextElementSibling;
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>

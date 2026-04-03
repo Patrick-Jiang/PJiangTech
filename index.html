@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PJiangTech | Managed IT & Infrastructure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lexend:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #020617; --text: #f1f5f9; --primary: #0f172a; --accent: #3b82f6;
+      --accent-glow: rgba(59, 130, 246, 0.5); --glass: rgba(15, 23, 42, 0.7);
+      --border: rgba(255, 255, 255, 0.1); --card-bg: #1e293b;
+    }
+    body.light {
+      --bg: #f8fafc; --text: #1e293b; --glass: rgba(255, 255, 255, 0.7);
+      --border: rgba(0, 0, 0, 0.05); --card-bg: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; transition: background 0.4s ease; }
+    h1, h2, h3 { font-family: 'Lexend', sans-serif; }
+    
+    header { position: fixed; width: 90%; top: 20px; left: 50%; transform: translateX(-50%); background: var(--glass); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 100px; padding: 12px 30px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
+    
+    .logo { font-size: 1.4rem; color: #ffffff !important; font-weight: 700; text-decoration: none; letter-spacing: -1px; }
+    
+    nav a { color: var(--text); margin-left: 25px; text-decoration: none; font-size: 0.9rem; font-weight: 500; opacity: 0.8; }
+    .mode-toggle { cursor: pointer; background: none; border: 1px solid var(--border); padding: 5px 10px; border-radius: 50%; margin-left: 15px; color: var(--text); }
+    
+    .hero { padding: 200px 20px 100px; text-align: center; background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent); }
+    .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 20px; background: linear-gradient(to bottom right, #fff, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    
+    .btn { display: inline-block; background: var(--accent); color: white; padding: 16px 35px; border-radius: 100px; text-decoration: none; font-weight: 600; box-shadow: 0 10px 20px var(--accent-glow); border: none; cursor: pointer; transition: transform 0.3s ease; }
+    .btn:hover { transform: translateY(-3px); }
+
+    section { padding: 80px 10%; max-width: 1300px; margin: auto; }
+    
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; }
+    .s-card { background: var(--card-bg); padding: 35px; border-radius: 24px; border: 1px solid var(--border); transition: transform 0.3s; text-decoration: none; color: inherit; display: block; }
+    .s-card:hover { transform: translateY(-8px); border-color: var(--accent); }
+    .s-card h3 { color: var(--accent); margin-bottom: 12px; font-size: 1.3rem; }
+    .s-card p { font-size: 0.95rem; opacity: 0.8; }
+
+    /* CTA Section (Replaces Form) */
+    .cta-section { text-align: center; padding: 100px 10%; background: linear-gradient(to bottom, transparent, rgba(59, 130, 246, 0.05)); border-radius: 40px; margin-bottom: 60px; }
+    
+    footer { text-align: center; padding: 60px 20px; border-top: 1px solid var(--border); opacity: 0.6; font-size: 0.85rem; }
+
+    /* Animation Keyframes */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.testimonial-card {
+  opacity: 0; /* Hidden initially for scroll effect */
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Class added by JavaScript when scrolled into view */
+.reveal {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent) !important;
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+}
+/* FAQ Accordion Styles */
+.accordion {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin-bottom: 15px;
+  padding: 20px 25px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.accordion:hover {
+  border-color: var(--accent);
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.accordion::after {
+  content: '+';
+  font-size: 1.5rem;
+  color: var(--accent);
+  transition: transform 0.3s ease;
+}
+
+.accordion.active::after {
+  content: '−';
+  transform: rotate(180deg);
+}
+
+.panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background: rgba(15, 23, 42, 0.3);
+  border-radius: 0 0 16px 16px;
+  margin-top: -16px;
+  margin-bottom: 20px;
+  padding: 0 25px;
+}
+
+.panel p {
+  padding: 20px 0;
+  opacity: 0.8;
+  font-size: 0.95rem;
+}
+
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">PJiangTech</a>
+  <nav>
+  <a href="about.html">About</a>        
+  <a href="services.html">Services</a> 
+  <a href="faq.html">F&Q</a> 
+  <a href="contact.html">Contact</a>    
+  <button class="mode-toggle" onclick="toggleMode()">🌓</button>
+</nav>
+</header>
+
+<section class="hero">
+  <h1>Reliable IT.<br>Secure Business.</h1>
+  <p>Tier 3 infrastructure expertise and managed security for construction, medical, and professional firms.</p>
+  <a href="contact.html" class="btn" style="margin-top: 25px;">Get in Touch</a>
+</section>
+
+<section id="services">
+  <div style="text-align: center; margin-bottom: 50px;">
+    <h2 style="font-size: 2.5rem; margin-bottom: 15px;">Enterprise-Grade Solutions</h2>
+    <p style="opacity: 0.7; max-width: 700px; margin: 0 auto;">Leveraging a decade of technical leadership to provide end-to-end IT systems integration for businesses of all sizes.</p>
+  </div>
+  
+  <div class="services-grid">
+    <a href="services.html" class="s-card">
+      <h3 style="color: #60a5fa;">Digital Foundations</h3>
+      <p><strong>Perfect for new businesses.</strong> Professional email setup (M365), domain management, and secure cloud storage to get you started right.</p>
+    </a>
+
+    <a href="services.html" class="s-card">
+      <h3>Managed IT</h3>
+      <p>24/7 monitoring, proactive patch management, and unlimited Tier 3 helpdesk support for established teams.</p>
+    </a>
+
+    <a href="services.html" class="s-card">
+      <h3>Network Security</h3>
+      <p>Custom infrastructure built for construction sites, warehouses, and medical clinics.</p>
+    </a>
+
+    <a href="services.html" class="s-card">
+      <h3>Cloud & Servers</h3>
+      <p>High-availability Azure migrations, on-premise server maintenance, and secure backups.</p>
+    </a>
+
+    <a href="services.html" class="s-card">
+      <h3>Modern Workplace</h3>
+      <p>Full Microsoft 365 administration, Intune MDM, and automated device provisioning.</p>
+    </a>
+
+    <a href="services.html" class="s-card">
+      <h3>Communication & Security</h3>
+      <p>Hosted VoIP deployments and IP surveillance integration for total site safety and connectivity.</p>
+    </a>
+  </div>
+</section>
+
+<section id="about" class="about-section">
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;">
+    <div>
+      <h2 style="color: var(--accent); font-size: 2.2rem; margin-bottom: 20px;">10+ Years of Technical Excellence</h2>
+      <p>Founded by <strong>Patrick Jiang</strong>, PJiangTech brings senior-level Systems Administration expertise to small and mid-sized businesses.</p>
+      <p style="margin-top: 15px;">A <strong>Business Information Technology Honors Graduate</strong>, Patrick has a proven track record of leading multi-site infrastructure projects with zero service disruption and ITIL-aligned stability.</p>
+    </div>
+    <div style="background: var(--glass); padding: 40px; border-radius: 24px; border: 1px solid var(--border); text-align: center;">
+        <div style="margin-bottom: 20px;">
+            <h3 style="color: var(--accent); font-size: 2.5rem;">10+ Years</h3>
+            <p style="opacity: 0.8;">Industry Experience</p>
+        </div>
+        <hr style="opacity: 0.1; margin: 20px 0;">
+        <div>
+            <h3 style="color: var(--accent); font-size: 2.5rem;">Tier 3</h3>
+            <p style="opacity: 0.8;">Senior Infrastructure Support</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="testimonials" style="padding: 100px 10%; overflow: hidden;">
+  <div style="text-align: center; margin-bottom: 60px;">
+    <h2 style="font-size: 2.5rem; color: var(--accent);">Client Success</h2>
+    <p style="opacity: 0.7;">Real results from infrastructure and service partnerships.</p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+    
+    <div class="testimonial-card" style="background: var(--glass); padding: 40px; border-radius: 24px; border: 1px solid var(--border); display: flex; flex-direction: column;">
+      <p style="font-style: italic; opacity: 0.9; flex-grow: 1;">"Resolved our network problems in under an hour. Also implemented a cloud solution that cut our server expenses by 30%. Unmatched expertise."</p>
+      <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--border);">
+        <strong style="color: var(--accent); display: block;">Infrastructure Client</strong>
+        <small style="opacity: 0.6;">Professional Services Firm</small>
+      </div>
+    </div>
+
+
+    <div class="testimonial-card" style="background: var(--glass); padding: 40px; border-radius: 24px; border: 1px solid var(--border); display: flex; flex-direction: column;">
+      <p style="font-style: italic; opacity: 0.9; flex-grow: 1;">"Handled hiring shifts seamlessly—from email setup to access permissions. The onboarding was fast and smooth, allowing our team to work without headaches."</p>
+      <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--border);">
+        <strong style="color: var(--accent); display: block;">Business Owner</strong>
+        <small style="opacity: 0.6;">Growing Professional Team</small>
+      </div>
+    </div>
+
+    <div class="testimonial-card" style="background: var(--glass); padding: 40px; border-radius: 24px; border: 1px solid var(--border); display: flex; flex-direction: column;">
+      <p style="font-style: italic; opacity: 0.9; flex-grow: 1;">"Handled our entire new Jobsite IT setup. Ran RJ45 cables, installed APs, and configured switches. Everything worked perfectly on day one."</p>
+      <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--border);">
+        <strong style="color: var(--accent); display: block;">Project Lead</strong>
+        <small style="opacity: 0.6;">Construction & Development</small>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="faq" style="padding: 100px 10%;">
+  <div style="text-align: center; margin-bottom: 50px;">
+    <h2 style="font-size: 2.5rem; color: var(--accent);">Common Questions</h2>
+    <p style="opacity: 0.7;">Everything a growing business needs to know about our IT partnership.</p>
+  </div>
+
+  <div style="max-width: 900px; margin: auto;">
+    <div class="accordion">What IT services do you provide for small businesses?</div>
+    <div class="panel"><p>We handle everything from professional email setup (Microsoft 365) and network cabling to managed security and Tier 3 infrastructure support.</p></div>
+
+    <div class="accordion">Do I need to hire a full-time IT person?</div>
+    <div class="panel"><p>Not necessarily. We provide the same level of senior expertise at a fraction of the cost, acting as your dedicated IT department.</p></div>
+
+    <div class="accordion">How do you ensure the work is performed to professional standards?</div>
+<div class="panel">
+  <p>Every project and service engagement begins with a detailed <strong>Statement of Work (SOW)</strong>. This document clearly defines the scope, technical requirements, and expected deliverables, ensuring full transparency. By following a structured, ITIL-aligned process, we guarantee that all infrastructure changes are documented, tested, and executed with zero surprise to your operations.</p>
+</div>
+
+    <div class="accordion">Can you help with office moves or new setups?</div>
+    <div class="panel"><p>Yes. We handle the physical infrastructure, including running RJ45 cabling, configuring switches, and ensuring your WiFi is enterprise-ready from day one.</p></div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="faq.html" style="color: var(--accent); text-decoration: none; font-weight: 600;">View All Frequently Asked Questions →</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+    <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Ready to Secure and Optimize Your Infrastructure?</h2>
+    <p style="opacity: 0.8; margin-bottom: 40px; font-size: 1.1rem;">Contact PJiangTech today for a comprehensive network and security audit.</p>
+    <a href="contact.html" class="btn">Book a Consultation</a>
+</section>
+
+<footer><p>© 2026 PJiangTech | GTA • Barrie • Hamilton</p></footer>
+
+<script>
+  // 1. Theme Toggle Logic
+  function toggleMode() { 
+    document.body.classList.toggle('light'); 
+    localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark'); 
+  }
+  if (localStorage.getItem('theme') === 'light') document.body.classList.add('light');
+
+  // 2. Accordion Logic
+  const acc = document.querySelectorAll('.accordion');
+  acc.forEach(a => {
+    a.addEventListener('click', function() {
+      this.classList.toggle('active');
+      const panel = this.nextElementSibling;
+      // Check if panel is already open
+      if (panel.style.maxHeight && panel.style.maxHeight !== "0px") {
+        panel.style.maxHeight = "0px";
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+    });
+  });
+
+  // 3. Scroll Reveal Animation Logic
+  const observerOptions = { threshold: 0.1 };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('reveal');
+      }
+    });
+  }, observerOptions);
+
+  // Apply reveal animation to both testimonials and accordions
+  document.querySelectorAll('.testimonial-card, .accordion').forEach((el) => {
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>

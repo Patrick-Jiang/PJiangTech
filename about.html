@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About PJiangTech | Professional IT Leadership</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lexend:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #020617; --text: #f1f5f9; --primary: #0f172a; --accent: #3b82f6;
+      --glass: rgba(15, 23, 42, 0.7); --border: rgba(255, 255, 255, 0.1); --card-bg: #1e293b;
+    }
+    body.light {
+      --bg: #f8fafc; --text: #1e293b; --glass: rgba(255, 255, 255, 0.7);
+      --border: rgba(0, 0, 0, 0.05); --card-bg: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; transition: background 0.4s ease; }
+    h1, h2, h3 { font-family: 'Lexend', sans-serif; color: var(--accent); }
+    
+    header { position: fixed; width: 90%; top: 20px; left: 50%; transform: translateX(-50%); background: var(--glass); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 100px; padding: 12px 30px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
+    .logo { font-size: 1.4rem; color: #ffffff !important; font-weight: 700; text-decoration: none; letter-spacing: -1px; }
+    nav a { color: var(--text); margin-left: 25px; text-decoration: none; font-size: 0.9rem; font-weight: 500; opacity: 0.8; }
+    
+    .hero { padding: 180px 20px 80px; text-align: center; background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); color: white; }
+    .hero h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 15px; color: white; }
+    
+    .content-section { padding: 80px 10%; max-width: 1200px; margin: auto; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+    .bio-text p { margin-bottom: 20px; font-size: 1.05rem; opacity: 0.9; }
+    
+    .stats-box { background: var(--card-bg); padding: 40px; border-radius: 24px; border: 1px solid var(--border); text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+    .stats-box h3 { font-size: 2.2rem; margin-bottom: 5px; }
+    .stats-box p { opacity: 0.8; font-weight: 500; font-size: 0.9rem; }
+    hr { opacity: 0.1; margin: 25px 0; border: 1px solid var(--text); }
+
+    /* Updated Profile Styling: Width now matches Stats Box */
+    .profile-photo-container {
+        width: 100%; /* Fills the grid column width */
+        margin-bottom: 30px;
+        border-radius: 24px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .profile-photo {
+        width: 100%;
+        height: auto;
+        display: block;
+        filter: none; /* Keeps natural light */
+    }
+
+    footer { text-align: center; padding: 60px 20px; border-top: 1px solid var(--border); opacity: 0.6; font-size: 0.85rem; }
+
+    @media (max-width: 768px) {
+      .content-section { grid-template-columns: 1fr; }
+      .bio-text { order: 2; }
+      .right-column-container { order: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo">PJiangTech</a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="faq.html">F&Q</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Enterprise Experience. Local Partnership.</h1>
+  <p style="opacity: 0.9; font-size: 1.1rem; max-width: 600px; margin: auto;">Built on a decade of infrastructure leadership to support the next generation of business growth.</p>
+</section>
+
+<section class="content-section">
+<div class="bio-text">
+  <h2>The PJiangTech Vision</h2>
+  <p>PJiangTech was founded by <strong>Patrick Jiang</strong> to provide small and mid-sized businesses with the same caliber of IT leadership found in major corporations. With over 10 years of experience in senior systems administration, Patrick understands that technology should be a silent driver of success, not a source of frustration.</p>
+  
+  <p>Our expertise is rooted in <strong>Tier 3 infrastructure support</strong>—the highest level of technical escalation. We specialize in managing high-availability environments where downtime is not an option, particularly for clients in the construction, medical, and professional service sectors.</p>
+
+  <p>In an era of increasing digital threats, we prioritize a <strong>security-first methodology</strong>. By implementing robust cybersecurity best practices—including passphrase-style complexity, randomized leetspeak encryption, and advanced network security—we ensure your proprietary data remains protected against modern vulnerabilities. Our goal is to build resilient systems that safeguard your business reputation and operational integrity.</p>
+  
+  <p>Beyond technical mastery, PJiangTech is defined by a <strong>concierge-level approach to customer service</strong>. We believe in clear communication and professional collaboration, acting as a true extension of your team. Whether providing automated onboarding summaries or troubleshooting complex infrastructure schedules, our support is designed to be responsive, empathetic, and aligned with your specific business goals.</p>
+  
+  <p>Patrick combines a deep understanding of corporate workflows with hands-on technical mastery of Microsoft 365, advanced network security, and secure cloud migrations. At PJiangTech, we focus on proactive strategy and ITIL-aligned management to ensure your business remains secure and scalable.</p>
+</div>
+  
+  <div class="right-column-container">
+    <div class="profile-photo-container">
+        <img src="profile.jpg" alt="Patrick Jiang, PJiangTech Founder" class="profile-photo">
+    </div>
+
+    <div class="stats-box">
+        <div>
+          <h3>10+ Years</h3>
+          <p>Senior Infrastructure Expertise</p>
+        </div>
+        <hr>
+        <div>
+          <h3>Zero-Downtime</h3>
+          <p>Track Record in Modernizations</p>
+        </div>
+        <hr>
+        <div>
+          <h3>Tier 3</h3>
+          <p>Senior Escalation & Systems Architecture</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 PJiangTech | GTA • Barrie • Hamilton</p>
+</footer>
+
+<script>
+  if (localStorage.getItem('theme') === 'light') document.body.classList.add('light');
+</script>
+</body>
+</html>
