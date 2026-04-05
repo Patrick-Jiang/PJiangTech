@@ -21,6 +21,15 @@
     header { position: fixed; width: 90%; top: 20px; left: 50%; transform: translateX(-50%); background: var(--glass); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 100px; padding: 12px 30px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
     .logo { font-size: 1.4rem; color: #ffffff !important; font-weight: 700; text-decoration: none; letter-spacing: -1px; }
     nav a { color: var(--text); margin-left: 25px; text-decoration: none; font-size: 0.9rem; font-weight: 500; opacity: 0.8; }
+
+    .header-right { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: flex-end; }
+    .header-contact { display: flex; align-items: center; gap: 10px; }
+    .header-contact a { color: var(--text); text-decoration: none; font-size: 0.85rem; font-weight: 600; opacity: 0.9; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--border); background: rgba(15, 23, 42, 0.25); }
+    body.light .header-contact a { background: rgba(255, 255, 255, 0.4); }
+    .header-contact a:hover { border-color: var(--accent); }
+    @media (max-width: 900px) {
+      .header-contact { display: none; }
+    }
     
     .hero { padding: 180px 20px 60px; text-align: center; }
     .hero h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 10px; }
@@ -56,17 +65,27 @@
 
 <header>
   <a href="index.html" class="logo">PJiangTech</a>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="faq.html">F&Q</a>
-  </nav>
+  <div class="header-right">
+    <div class="header-contact" aria-label="Contact links">
+      <a href="tel:6475108267" title="Call PJiangTech">647‑510‑8267</a>
+      <a href="mailto:info@pjiangtech.com" title="Email PJiangTech">info@pjiangtech.com</a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="faq.html">FAQ</a>
+    </nav>
+  </div>
 </header>
 
 <section class="hero">
   <h1>Get in Touch</h1>
   <p style="opacity: 0.8; font-size: 1.1rem;">Secure and scale your business operations with PJiangTech.</p>
+  <div style="margin-top: 22px; display: flex; justify-content: center;">
+    <a href="#contact-form" style="display: inline-block; background: var(--accent); color: white; padding: 14px 30px; border-radius: 100px; text-decoration: none; font-weight: 600; box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);">Get a Free 15‑min IT Assessment</a>
+  </div>
+  <p style="margin-top: 14px; opacity: 0.7; font-size: 0.95rem;">Reply within 1 business day.</p>
 </section>
 
 <section class="contact-wrapper">
@@ -90,7 +109,7 @@
     </div>
   </div>
 
-  <div class="contact-form">
+  <div class="contact-form" id="contact-form">
     <h2 style="margin-bottom: 25px;">Send a Message</h2>
     
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {document.getElementById('contact-form-content').style.display='none'; document.getElementById('success-msg').style.display='block';}"></iframe>

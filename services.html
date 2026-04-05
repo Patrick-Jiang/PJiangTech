@@ -57,6 +57,15 @@
 
     nav a { color: var(--text); margin-left: 25px; text-decoration: none; font-size: 0.9rem; font-weight: 500; opacity: 0.8; }
 
+    .header-right { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: flex-end; }
+    .header-contact { display: flex; align-items: center; gap: 10px; }
+    .header-contact a { color: var(--text); text-decoration: none; font-size: 0.85rem; font-weight: 600; opacity: 0.9; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--border); background: rgba(15, 23, 42, 0.25); }
+    body.light .header-contact a { background: rgba(255, 255, 255, 0.4); }
+    .header-contact a:hover { border-color: var(--accent); }
+    @media (max-width: 900px) {
+      .header-contact { display: none; }
+    }
+
     .hero { 
       padding: 180px 20px 80px; 
       text-align: center; 
@@ -135,12 +144,18 @@
 
 <header>
   <a href="index.html" class="logo">PJiangTech</a>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="faq.html">F&Q</a>
-    <a href="contact.html">Contact</a>   
-  </nav>
+  <div class="header-right">
+    <div class="header-contact" aria-label="Contact links">
+      <a href="tel:6475108267" title="Call PJiangTech">647‑510‑8267</a>
+      <a href="mailto:info@pjiangtech.com" title="Email PJiangTech">info@pjiangtech.com</a>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>   
+    </nav>
+  </div>
 </header>
 
 <section class="hero">
@@ -237,7 +252,8 @@
 <div class="cta-section">
   <h2>Ready for a Technical Audit?</h2>
   <p style="margin-bottom: 30px; opacity: 0.8;">Let's build a secure foundation for your business growth.</p>
-  <a href="contact.html" class="btn">Get in Touch</a>
+  <a href="contact.html" class="btn">Get a Free 15‑min IT Assessment</a>
+  <p style="margin-top: 16px; opacity: 0.7;">Reply within 1 business day.</p>
 </div>
 
 <footer>

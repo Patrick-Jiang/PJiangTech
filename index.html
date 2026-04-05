@@ -19,12 +19,21 @@
     body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.6; transition: background 0.4s ease; }
     h1, h2, h3 { font-family: 'Lexend', sans-serif; }
     
-    header { position: fixed; width: 90%; top: 20px; left: 50%; transform: translateX(-50%); background: var(--glass); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 100px; padding: 12px 30px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; }
+    header { position: fixed; width: 90%; top: 20px; left: 50%; transform: translateX(-50%); background: var(--glass); backdrop-filter: blur(12px); border: 1px solid var(--border); border-radius: 100px; padding: 12px 30px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; gap: 18px; }
     
     .logo { font-size: 1.4rem; color: #ffffff !important; font-weight: 700; text-decoration: none; letter-spacing: -1px; }
     
     nav a { color: var(--text); margin-left: 25px; text-decoration: none; font-size: 0.9rem; font-weight: 500; opacity: 0.8; }
     .mode-toggle { cursor: pointer; background: none; border: 1px solid var(--border); padding: 5px 10px; border-radius: 50%; margin-left: 15px; color: var(--text); }
+
+    .header-right { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: flex-end; }
+    .header-contact { display: flex; align-items: center; gap: 10px; }
+    .header-contact a { color: var(--text); text-decoration: none; font-size: 0.85rem; font-weight: 600; opacity: 0.9; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--border); background: rgba(15, 23, 42, 0.25); }
+    body.light .header-contact a { background: rgba(255, 255, 255, 0.4); }
+    .header-contact a:hover { border-color: var(--accent); }
+    @media (max-width: 900px) {
+      .header-contact { display: none; }
+    }
     
     .hero { padding: 200px 20px 100px; text-align: center; background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.1), transparent); }
     .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 20px; background: linear-gradient(to bottom right, #fff, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -141,21 +150,28 @@
 
 <header>
   <a href="index.html" class="logo">PJiangTech</a>
-  <nav>
-  <a href="about.html">About</a>        
-  <a href="services.html">Services</a> 
-  <a href="faq.html">F&Q</a> 
-  <a href="contact.html">Contact</a>    
-  <button class="mode-toggle" onclick="toggleMode()">🌓</button>
-</nav>
+  <div class="header-right">
+    <div class="header-contact" aria-label="Contact links">
+      <a href="tel:6475108267" title="Call PJiangTech">647‑510‑8267</a>
+      <a href="mailto:info@pjiangtech.com" title="Email PJiangTech">info@pjiangtech.com</a>
+    </div>
+    <nav>
+      <a href="about.html">About</a>        
+      <a href="services.html">Services</a> 
+      <a href="faq.html">FAQ</a> 
+      <a href="contact.html">Contact</a>    
+      <button class="mode-toggle" onclick="toggleMode()">🌓</button>
+    </nav>
+  </div>
 </header>
 
 <section class="hero">
   <h1>Reliable IT.<br>Secure Business.</h1>
   <p>Tier 3 infrastructure expertise and managed security for construction, medical, and professional firms.</p>
-  <div style="display: flex; justify-content: center; width: 100%;">
-    <a href="contact.html" class="btn" style="margin-top: 25px;">Get in Touch</a>
+  <div style="display: flex; justify-content: center; width: 100%; margin-top: 25px;">
+    <a href="contact.html" class="btn">Get a Free 15‑min IT Assessment</a>
   </div>
+  <p style="margin-top: 18px; font-size: 0.95rem; opacity: 0.7;">Reply within 1 business day.</p>
 </section>
 
 <section id="services">
@@ -203,6 +219,15 @@
       <h2 style="color: var(--accent); font-size: 2.2rem; margin-bottom: 20px;">10+ Years of Technical Excellence</h2>
       <p>Founded by <strong>Patrick Jiang</strong>, PJiangTech brings senior-level Systems Administration expertise to small and mid-sized businesses.</p>
       <p style="margin-top: 15px;">A <strong>Business Information Technology Honors Graduate</strong>, Patrick has a proven track record of leading multi-site infrastructure projects with zero service disruption and ITIL-aligned stability.</p>
+
+      <div style="margin-top: 22px; background: rgba(59, 130, 246, 0.06); border: 1px solid var(--border); border-radius: 18px; padding: 18px 20px;">
+        <h3 style="font-size: 1.1rem; margin-bottom: 10px;">Why PJiangTech</h3>
+        <ul style="margin-left: 18px; opacity: 0.85;">
+          <li><strong>Senior-level ownership:</strong> direct access to Tier 3 expertise (no ticket ping‑pong).</li>
+          <li><strong>Microsoft-first modern workplace:</strong> M365, Intune, Azure, and secure identity.</li>
+          <li><strong>Built for real environments:</strong> construction sites, clinics, warehouses, and multi‑location offices.</li>
+        </ul>
+      </div>
     </div>
     <div style="background: var(--glass); padding: 40px; border-radius: 24px; border: 1px solid var(--border); text-align: center;">
         <div style="margin-bottom: 20px;">
@@ -230,8 +255,8 @@
     <div class="testimonial-card" style="background: var(--glass); padding: 40px; border-radius: 24px; border: 1px solid var(--border); display: flex; flex-direction: column;">
       <p style="font-style: italic; opacity: 0.9; flex-grow: 1;">"Resolved our network problems in under an hour. Also implemented a cloud solution that cut our server expenses by 30%. Unmatched expertise."</p>
       <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--border);">
-        <strong style="color: var(--accent); display: block;">Infrastructure Client</strong>
-        <small style="opacity: 0.6;">Professional Services Firm</small>
+        <strong style="color: var(--accent); display: block;">Operations Manager</strong>
+        <small style="opacity: 0.6;">Professional services firm (GTA) · ~30 users</small>
       </div>
     </div>
 
@@ -239,8 +264,8 @@
     <div class="testimonial-card" style="background: var(--glass); padding: 40px; border-radius: 24px; border: 1px solid var(--border); display: flex; flex-direction: column;">
       <p style="font-style: italic; opacity: 0.9; flex-grow: 1;">"Handled hiring shifts seamlessly—from email setup to access permissions. The onboarding was fast and smooth, allowing our team to work without headaches."</p>
       <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--border);">
-        <strong style="color: var(--accent); display: block;">Business Owner</strong>
-        <small style="opacity: 0.6;">Growing Professional Team</small>
+        <strong style="color: var(--accent); display: block;">Owner / Managing Partner</strong>
+        <small style="opacity: 0.6;">Growing team · onboarding + access controls</small>
       </div>
     </div>
 
@@ -248,7 +273,7 @@
       <p style="font-style: italic; opacity: 0.9; flex-grow: 1;">"Handled our entire new Jobsite IT setup. Ran RJ45 cables, installed APs, and configured switches. Everything worked perfectly on day one."</p>
       <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--border);">
         <strong style="color: var(--accent); display: block;">Project Lead</strong>
-        <small style="opacity: 0.6;">Construction & Development</small>
+        <small style="opacity: 0.6;">Construction (GTA) · new jobsite network build</small>
       </div>
     </div>
 
