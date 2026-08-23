@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact PJiangTech | Get in Touch</title>
+  <meta name="description" content="Book a free 15-minute IT assessment with PJiangTech. Serving businesses across the GTA, Barrie, and Hamilton." />
+  <link rel="canonical" href="https://pjiangtech.com/contact.html" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lexend:wght@600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -60,6 +62,8 @@
       .contact-wrapper { grid-template-columns: 1fr; }
     }
   </style>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="app.js"></script>
 </head>
 <body>
 
@@ -80,8 +84,8 @@
 </header>
 
 <section class="hero">
-  <h1>Get in Touch</h1>
-  <p style="opacity: 0.8; font-size: 1.1rem;">Secure and scale your business operations with PJiangTech.</p>
+  <h1>Let’s Talk About Your IT Challenges</h1>
+  <p style="opacity: 0.8; font-size: 1.1rem; max-width: 680px; margin: auto;">Tell us what is changing, what is not working, or what you are planning. We will help identify the most practical next step.</p>
   <div style="margin-top: 22px; display: flex; justify-content: center;">
     <a href="#contact-form" style="display: inline-block; background: var(--accent); color: white; padding: 14px 30px; border-radius: 100px; text-decoration: none; font-weight: 600; box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);">Get a Free 15‑min IT Assessment</a>
   </div>
@@ -110,33 +114,35 @@
   </div>
 
   <div class="contact-form" id="contact-form">
-    <h2 style="margin-bottom: 25px;">Send a Message</h2>
+    <h2 style="margin-bottom: 10px;">Request Your Free Assessment</h2>
+    <p style="margin-bottom: 25px; opacity: 0.75;">Share a few details about your team and current challenge. No technical explanation is required.</p>
     
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {document.getElementById('contact-form-content').style.display='none'; document.getElementById('success-msg').style.display='block';}"></iframe>
 
     <form id="contact-form-content" action="https://docs.google.com/forms/d/e/1FAIpQLSdGL6shszJ4pDmrNqP9O5g7yj_sD3TFsYjWXswj36KzKGZIqQ/formResponse" method="POST" target="hidden_iframe" onsubmit="return handleFormSubmit();">
       <div class="form-group">
-        <label>Full Name</label>
-        <input type="text" name="entry.678687994" placeholder="John Doe" required>
+        <label for="full-name">Full Name <span class="required" aria-hidden="true">*</span></label>
+        <input id="full-name" type="text" name="entry.678687994" autocomplete="name" placeholder="John Doe" required>
       </div>
       <div class="form-group">
-        <label>Company Name</label>
-        <input type="text" name="entry.978536721" placeholder="Your Business Ltd.">
+        <label for="company-name">Company Name</label>
+        <input id="company-name" type="text" name="entry.978536721" autocomplete="organization" placeholder="Your Business Ltd.">
       </div>
       <div class="form-group">
-        <label>Email Address</label>
-        <input type="email" name="entry.1798260498" placeholder="john@company.com" required>
+        <label for="email-address">Email Address <span class="required" aria-hidden="true">*</span></label>
+        <input id="email-address" type="email" name="entry.1798260498" autocomplete="email" placeholder="john@company.com" required>
       </div>
       <div class="form-group">
-        <label>Message</label>
-        <textarea name="entry.1328157650" rows="4" placeholder="How can we help?" required></textarea>
+        <label for="message">Message <span class="required" aria-hidden="true">*</span></label>
+        <textarea id="message" name="entry.1328157650" rows="4" placeholder="Tell us about your team and IT needs." required></textarea>
       </div>
-      <button type="submit" class="btn">Send Request</button>
+      <button type="submit" class="btn">Request My Assessment</button>
+      <p class="form-note">By submitting this form, you agree that PJiangTech may contact you about your request. Your information will not be sold.</p>
     </form>
 
-    <div id="success-msg">
+    <div id="success-msg" role="status" aria-live="polite">
       <h3>✓ Message Sent</h3>
-      <p>Thank you. We will contact you shortly.</p>
+      <p>Thank you. PJiangTech will reply within one business day.</p>
     </div>
   </div>
 </section>
@@ -162,7 +168,7 @@
   };
 
   function disableForm(minutes) {
-    const btn = document.querySelector('.btn');
+    const btn = document.querySelector('#contact-form-content button[type="submit"]');
     btn.disabled = true;
     btn.innerText = `Please wait ${minutes} minutes to resubmit`;
   }
