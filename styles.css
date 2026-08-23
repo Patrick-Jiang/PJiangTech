@@ -84,6 +84,34 @@ body.light .site-header .logo { color: #0f172a !important; }
 .form-note { margin-top: 14px; font-size: .85rem; opacity: .7; }
 .required { color: #fca5a5; }
 
+.right-column-container {
+  width: 100%;
+  max-width: 380px;
+  margin-inline: auto;
+}
+
+/* Wide desktop rhythm: fixed gutters preserve usable space on large screens. */
+@media (min-width: 821px) {
+  body > section:not(.hero),
+  .services-container,
+  .content-section,
+  .contact-wrapper {
+    width: min(calc(100% - 64px), 1500px);
+    max-width: 1500px;
+    margin-inline: auto;
+    padding-left: 32px !important;
+    padding-right: 32px !important;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .content-section {
+    align-items: start;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
