@@ -6,6 +6,74 @@
 
 html { scroll-behavior: smooth; }
 body { overflow-x: hidden; }
+
+/* Light mode is treated as its own visual system rather than a color inversion. */
+body.light {
+  --bg: #f3f6fb;
+  --text: #172033;
+  --muted: #526176;
+  --glass: rgba(255, 255, 255, 0.92);
+  --border: #dbe3ee;
+  --card-bg: #ffffff;
+  --accent: #2563eb;
+  --accent-glow: rgba(37, 99, 235, 0.2);
+  --surface-soft: #eaf2ff;
+  --success: #059669;
+  background-image:
+    radial-gradient(circle at 8% 4%, rgba(37, 99, 235, 0.07), transparent 28rem),
+    radial-gradient(circle at 92% 32%, rgba(14, 165, 233, 0.05), transparent 24rem);
+}
+
+body.light .site-header {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(148, 163, 184, 0.38);
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.09);
+}
+body.light .site-nav a:not(.nav-cta):hover,
+body.light .site-nav a:not(.nav-cta)[aria-current="page"] { color: #1d4ed8; }
+body.light .mode-toggle,
+body.light .menu-toggle { background: #f8fafc; border-color: #cbd5e1; }
+
+body.light .home-hero,
+body.light .faq-hero {
+  background: radial-gradient(circle at center top, rgba(37, 99, 235, 0.14), transparent 68%);
+}
+body.light .home-hero h1,
+body.light .faq-hero h1 {
+  background: linear-gradient(135deg, #0f172a 15%, #2563eb 85%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+body.light .eyebrow { color: #1d4ed8; }
+
+body.light :is(.s-card, .service-card, .testimonial-card, .stats-box, .contact-info, .contact-form, .accordion) {
+  border-color: #dbe3ee !important;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.07);
+}
+body.light :is(.s-card, .service-card, .testimonial-card, .stats-box, .contact-info) {
+  background: #ffffff !important;
+}
+body.light :is(.s-card, .service-card, .testimonial-card, .stats-box, .contact-info, .contact-form, .accordion):hover {
+  border-color: rgba(37, 99, 235, 0.55) !important;
+  box-shadow: 0 18px 42px rgba(37, 99, 235, 0.11);
+}
+body.light .cta-section {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.72), #eaf2ff);
+  border: 1px solid #dbeafe;
+}
+body.light .panel {
+  background: #eef4fc;
+  border: 1px solid #dbe3ee;
+  border-top: 0;
+}
+body.light :is(input, textarea) { background: #ffffff !important; border-color: #cbd5e1 !important; }
+body.light :is(input, textarea):focus {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+body.light .btn { box-shadow: 0 10px 22px rgba(37, 99, 235, 0.2); }
+body.light footer { opacity: 1; color: var(--muted); }
 a, button, input, textarea { -webkit-tap-highlight-color: transparent; }
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
   outline: 3px solid #93c5fd;
